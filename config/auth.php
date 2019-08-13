@@ -1,6 +1,6 @@
 <?php
 
-return [
+$authConf =  [
 
     /*
     |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -36,7 +36,11 @@ return [
     */
 
     'guards' => [
-        'web' => [
+      'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -46,6 +50,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'admin' => [
+          'driver' => 'session',
+          'provider' => 'admins',
+        ],
+
+        'shop' => [
+          'driver' => 'session',
+          'provider' => 'shops',
+        ],
+
     ],
 
     /*
@@ -71,10 +85,14 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+        'shops' => [
+            'driver' => 'eloquent',
+            'model' => App\Shop::class,
+        ],
     ],
 
     /*
@@ -98,6 +116,35 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'shops' => [
+            'provider' => 'shops',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
     ],
 
 ];
+$uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+// 管理者側の認証ガード設定
+if (strstr($uri, '/admin/') !== false || $uri === '/admin/login') {
+    $authConf['defaults'] = [
+        'guard'     => 'admin',
+        'passwords' => 'admins',
+    ];
+}
+
+// 管理者側の認証ガード設定
+if (strstr($uri, '/shop/') !== false || $uri === '/shop/login') {
+    $authConf['defaults'] = [
+        'guard'     => 'shop',
+        'passwords' => 'shops',
+    ];
+}
+
+return $authConf;

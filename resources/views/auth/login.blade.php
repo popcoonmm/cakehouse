@@ -9,6 +9,7 @@
 
                     <div class="login-body card-body">
                         <form method="POST" action="{{ route('login') }}">
+
                             @csrf
 
                             <div class="form-group row">

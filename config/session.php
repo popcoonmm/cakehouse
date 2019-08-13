@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Str;
 
-return [
+return
+$conf = [
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +124,7 @@ return [
     | new session cookie is created by the framework for every driver.
     |
     */
-
+    //
     'cookie' => env(
         'SESSION_COOKIE',
         Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
@@ -197,3 +198,28 @@ return [
     'same_site' => null,
 
 ];
+
+
+
+// else{
+//   //
+//   $conf['cookie'] = env(
+//       'SESSION_COOKIE',
+//       Str::slug(env('APP_NAME', 'laravel'), '_').'_user_session'
+//   );
+// }
+$uri = isset($SERVER['REQUEST_URI']) ? $SERVER['REQUEST_URI'] : '';
+echo $uri;
+if (strpos($uri, '/admin/') === 0 || $uri === '/admin') {
+    $conf['cookie'] = env(
+        'SESSION_COOKIE_ADMIN',
+        str_slug(env('APP_NAME', 'laravel'), '_').'_admin_session'
+    );
+}
+if (strpos($uri, '/shop/') === 0 || $uri === '/shop') {
+    $conf['cookie'] = env(
+        'SESSION_COOKIE_SHOP',
+        str_slug(env('APP_NAME', 'laravel'), '_').'_shop_session'
+    );
+}
+return $conf;
