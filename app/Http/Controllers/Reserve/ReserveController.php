@@ -1,6 +1,7 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Reserve;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Reserve;
 use Storage;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,7 @@ class ReserveController extends Controller
     
       
       $reserve->fill($form);
-      $reserve->user_id = Auth::user()->id;
-      
+      $reserve->user_id = Auth::guard("user")->user()->id;
       $reserve->save();
        
        return redirect('home');

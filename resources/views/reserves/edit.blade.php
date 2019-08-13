@@ -27,7 +27,7 @@
                         </thead>
                          <tbody>
                              
-                          <form action="{{ action('ReserveController@update',['id' =>$reserve->id]) }}" method="post" enctype="multipart/form-data">   
+                          <form action="{{ action('Reserve\ReserveController@update',['id' =>$reserve->id]) }}" method="post" enctype="multipart/form-data">   
                            <tr>
                                    <td>{{ $reserve->menu->item }}</td>
                                     <td>{{ $reserve->menu->price * $reserve->quantity  }}円</td>
@@ -46,7 +46,7 @@
                              <td>
                               
                                 <div>
-                                  <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">キャンセル</a>
+                                  <a href="{{ action('Reserve\ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">キャンセル</a>
                                 </div>
                              </td>
                         

@@ -64,7 +64,7 @@ Auth::routes();
 
 
 
-Route::group(['prefix' => 'reserves','middleware'=>'guest:user'], function() {
+Route::group(['prefix' => 'reserves','middleware'=>'auth:user'], function() {
    Route::get('index','Reserve\ReserveController@index');
    Route::post('create','Reserve\ReserveController@create');
    Route::get('edit','Reserve\ReserveController@edit');

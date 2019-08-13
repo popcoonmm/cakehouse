@@ -1,4 +1,4 @@
-@extends('layouts.house')
+@extends('layouts.app')
 @section('title','メニュー一覧')
 @section('content')
  <div id ="app">

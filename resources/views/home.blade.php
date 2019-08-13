@@ -36,7 +36,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin/login">{{ __('店舗ログイン') }}</a>
+                                <a class="nav-link" href="shop/login">{{ __('店舗ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

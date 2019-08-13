@@ -37,10 +37,10 @@
                                     
                          <td>
                             <div>
-                                <a href="{{ action('ReserveController@edit', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">編集</a>
+                                <a href="{{ action('Reserve\ReserveController@edit', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">編集</a>
                             </div>
                             <div>
-                                <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">削除</a>
+                                <a href="{{ action('Reserve\ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">削除</a>
                                         </div>
                          </td>
                         
