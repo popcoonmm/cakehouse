@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_shop')
 @section('title', 'MENU HOUSE1')
 @section('content')
   <header>
