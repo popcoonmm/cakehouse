@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -26,7 +25,11 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+    //ログイン画面追加８/18
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
     /**
      * Create a new controller instance.
      *

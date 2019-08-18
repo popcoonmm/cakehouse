@@ -1,5 +1,5 @@
 @extends('layouts.house')
-@section('title', 'MENU HOUSE1')
+@section('title', 'HOUSE1')
 @section('content')
   <header>
       <div class="container">
