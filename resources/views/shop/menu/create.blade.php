@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_shop')
 @section('title', 'メニューの新規作成')
 @section('content')
      <div id ="app">
