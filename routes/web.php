@@ -52,7 +52,7 @@ Route::group(['prefix' => 'shop',"middleware" => "auth:shop"],function(){
 
 
     Route::get('/shop/login',     'Shop\Auth\LoginController@showLoginForm')->name('shop.login');
-    Route::post('/shop/login',    'Shop\Auth\LoginController@login');
+    Route::post('/shop/login',    'Shop\Auth\LoginController@login')->name('shop.login');
     Route::get('/shop/register', 'Shop\Auth\RegisterController@showRegisterForm')->name('shop.register');
     Route::post('/shop/register', 'Shop\Auth\RegisterController@register')->name('shop.register');
 

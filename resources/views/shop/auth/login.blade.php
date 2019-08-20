@@ -8,7 +8,7 @@
                     <div class="login-header card-header mx-auto">{{ __('店舗ログイン') }}</div>
 
                     <div class="login-body card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('shop.login') }}">
 
                             @csrf
 
