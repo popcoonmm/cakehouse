@@ -71,3 +71,4 @@ Route::group(['prefix' => 'reserves','middleware'=>'auth:user'], function() {
    Route::post('edit','Reserve\ReserveController@update');
    Route::get('delete','Reserve\ReserveController@delete');
 });
+Route::post('/order_list','Order_list\Order_listsController@create');

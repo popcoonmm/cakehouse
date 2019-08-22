@@ -61,4 +61,5 @@ class ReserveController extends Controller
       $reserve->delete();
       return redirect('home');
   }
+
 }
