@@ -14,7 +14,7 @@ class ReserveController extends Controller
       $reserves = Reserve::all();
       
         return view('reserves.index',['reserves' => $reserves]);
-        // dd($reserves);heroku
+      
     }
     
      public function create(Request $request)

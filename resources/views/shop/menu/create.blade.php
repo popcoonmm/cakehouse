@@ -14,7 +14,7 @@
                             @endforeach
                         </ul>
                     @endif
-<h2>{{Auth::guard('shop')->user()->name}}</h2>
+<!--<h2>{{Auth::guard('shop')->user()->name}}</h2>-->
                      <div class="form-group row">
                         <lable class="col-md-2" for="item">商品名</lable>
                         <div class="col-md-8">
