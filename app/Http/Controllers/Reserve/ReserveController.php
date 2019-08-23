@@ -10,11 +10,8 @@ class ReserveController extends Controller
 {
      public function index()
     {
-      
-      $reserves = Reserve::all();
-      
-        return view('reserves.index',['reserves' => $reserves]);
-      
+      $reserves=Reserve::all();
+      return view('reserves.index',['reserves' => $reserves]);
     }
     
      public function create(Request $request)

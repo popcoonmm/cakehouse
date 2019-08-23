@@ -27,7 +27,7 @@
                         <tbody>
       <!--左が全てのデータ(複数系)からひとつ（単数形）だけ取り出す-->
       <!--nullなら表示させないIF文を書く-->
-       @if ******
+       @if(!$reserves->isEmpty())
        @foreach($reserves as $reserve)
                         <tr>
                                     <td>{{ $reserve->menu->item }}</td>
@@ -51,8 +51,7 @@
           @endif
           </tbody>
           </table>
-          <!--nullなら表示させないIF文を書く-->
-          @if ******
+          @if(!$reserves->isEmpty())
           <div class="container-fluid col-md-6 mx-auto col-10">
               
            <input type="hidden" name="menu_id" value="{{ $reserve->menu->id }}">
@@ -62,10 +61,10 @@
                       <!-- Button trigger modal -->
                       
                       
-　　　　　　　　<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">予約する</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">予約する</button>
 
 
-　　　　　<!-- Modal -->
+            <!-- Modal -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="margin-top: 5vh;">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
@@ -82,8 +81,8 @@
                    {{ csrf_field() }}
                     
                     
-                 <!--{{$i=0}}-->
-         <!--  {{ $sum_price = 0 }} -->
+           <!--      {{$i=0}}-->
+           <!--{{ $sum_price = 0 }} -->
         @foreach($reserves as $reserve)
       
             <div class="modalrow">
@@ -92,7 +91,7 @@
                 <span>{{ $reserve->quantity }}個</span>
                 <hr>
                 
-               <!--IDのタグをPOSTで一緒に送るためのタグ-->
+               IDのタグをPOSTで一緒に送るためのタグ
                 <input type="hidden" name="reserve_id_{{ $i }}" value="{{$reserve->id}}">
                 <input type="hidden" name="menu_id_{{ $i }}" value="{{$reserve->menu->id}}">
                 <input type="hidden" name="product_number_{{ $i }}" value="{{$reserve->product_number}}">
@@ -100,8 +99,8 @@
                 <input type="hidden" name="quantity_{{ $i }}" value="{{$reserve->quantity}}">
                 <input type="hidden" name="price_{{ $i }}" value="{{$reserve->menu->price}}">
                 <input type="hidden" name="description_{{ $i }}" value="{{$reserve->menu->description}}">
-                 <!--  {{ $sum_price +=  $reserve->menu->price * $reserve->quantity  }} -->
-                <!--{{ $i++ }}-->
+                   {{ $sum_price +=  $reserve->menu->price * $reserve->quantity  }} 
+                {{ $i++ }}
                         
             </div>
         @endforeach

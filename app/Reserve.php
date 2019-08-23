@@ -12,7 +12,7 @@ class Reserve extends Model
     public static $rules = array(
         'quantity' => 'required',
       // id	product_number	users_number	quantity	menu_id	item	price	description	created_at	updated_at
-　　　//ルールを書く　マイグレーションファイルに入れる
+      //ルールを書くマイグレーションファイルに入れる
 
     );
     // protected $fillable = [
@@ -21,7 +21,7 @@ class Reserve extends Model
     public function menu() {
       return $this->belongsTo('App\Menu');//belongsToは$reservekから$menuに入れることができる便利なやつ
     }
-    //belongsToの中身　
+    //belongsToの中身
     // public function menu() {
     //   return Menu::find($this->menu_id);
     // }
